@@ -22,8 +22,9 @@ class Calculator:
     def on_click(self, char):
         if char == '=':
             try:
-                self.result.insert(tk.END, str(eval(self.result.get())))
+                result = eval(self.result.get())
                 self.result.delete(0, tk.END)
+                self.result.insert(tk.END, str(result))
             except Exception:
                 self.result.delete(0, tk.END)
                 self.result.insert(tk.END, "Error")
@@ -34,4 +35,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     calc = Calculator(root)
     root.mainloop()
+
 
